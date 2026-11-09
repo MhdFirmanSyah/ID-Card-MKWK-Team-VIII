@@ -207,8 +207,7 @@ input[type=range]{width:100%;accent-color:var(--gold)}
 
 /* Efek saat kursor berada di atas footer-list */
 .footer-list:hover {
-  transform: scale(1.05);
-  /* color: rgb(14, 0, 27); */
+  scale: 1.05; /* Efek zoom */
 }
 
 /* Tata letak item sosial media */
@@ -236,7 +235,10 @@ input[type=range]{width:100%;accent-color:var(--gold)}
 
 /* Efek zoom saat kursor diarahkan ke ikon */
 .footer-img:hover {
-  transform: scale(1.35);
+  transform: scale(1.1);
+}
+.creditName p{
+  font-size: 15px;
 }
 .creditName{
   font-family: 'Courier New', Courier, monospace;
@@ -264,7 +266,7 @@ input[type=range]{width:100%;accent-color:var(--gold)}
 }
 .creditName a:hover{
   text-decoration: underline;
-  scale: 1.05;
+  transform: scale(1.05);
 }
 #status{min-height:1.4em;margin:12px 0 0;font-size:13.5px;color:var(--gold-2)}
 @media (max-width:860px){
