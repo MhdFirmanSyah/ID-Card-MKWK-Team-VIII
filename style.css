@@ -463,6 +463,8 @@ input[type=range] {
 }
 
 .creditName {
+  z-index: -9999;
+  box-shadow: 0px 0px 100px 0px #eac67935;
   font-family: 'Courier New', Courier, monospace;
   color: #EAC679;
   background-color: rgb(59, 12, 12);
