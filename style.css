@@ -43,10 +43,6 @@ body {
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 
-.group h2 {
-  font-size: 200px;
-}
-
 .top {
   display: flex;
   align-items: center;
@@ -129,7 +125,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 400px;
-  aspect-ratio: 5/8;
+  aspect-ratio: 5.5/8.5;
   margin: 0 auto;
   filter: drop-shadow(0 28px 36px rgba(0,0,0,.6));
 }
@@ -142,10 +138,10 @@ body {
 
 .hit {
   position: absolute;
-  left: 23.4%;
-  top: 28.375%;
-  width: 53.2%;
-  height: 33.875%;
+  left: 24.31%;
+  top: 23.25%;
+  width: 51.39%;
+  height: 39%;
   touch-action: none;
   cursor: grab;
   border-radius: 4px;
@@ -345,6 +341,57 @@ input[type=range] {
   margin: 14px 0 0;
   color: var(--muted);
   font-size: 13.5px;
+}
+
+.seg.wrap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.seg.wrap label {
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 13.5px;
+  line-height: 1.25;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(0,0,0,.25);
+}
+
+.seg.wrap input:checked + label {
+  border-color: transparent;
+}
+
+.tog {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tog input {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  flex: none;
+  accent-color: var(--gold);
+}
+
+.tog small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
 }
 
 /* --- Bagian Footer & Credit --- */
