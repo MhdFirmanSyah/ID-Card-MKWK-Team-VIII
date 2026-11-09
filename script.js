@@ -1,4 +1,4 @@
-<script>
+//file card dan assets(logo doang wok)
 (function(){
 'use strict';
 var W=1000,H=1600;
@@ -418,4 +418,3 @@ if(document.fonts&&document.fonts.load){
   ].map(function(f){return document.fonts.load(f,'Aa')})).then(render,render);
 }
 })();
-</script>
