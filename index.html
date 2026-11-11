@@ -48,7 +48,7 @@
         <label class="tog"><input type="checkbox" id="cut" checked disabled><span>Foto keluar dari bingkai<small>Latar polos dihapus otomatis, kepala tampil menembus bingkai.</small></span></label>
         <div class="sliders">
           <label class="sl" id="slTol" aria-disabled="true">Toleransi <input type="range" id="tol" min="16" max="110" step="1" value="46" disabled></label>
-          <label class="sl" id="slZoom" aria-disabled="true">Zoom <input type="range" id="zoom" min="1" max="3" step="0.01" value="1" disabled></label>
+          <label class="sl" id="slZoom" aria-disabled="true">Zoom <input type="range" id="zoom" min="0.4" max="3" step="0.01" value="1" disabled></label>
           <label class="sl" id="slX" aria-disabled="true">Kiri–kanan <input type="range" id="panX" min="-1" max="1" step="0.01" value="0" disabled></label>
           <label class="sl" id="slY" aria-disabled="true">Atas–bawah <input type="range" id="panY" min="-1" max="1" step="0.01" value="0" disabled></label>
         </div>
@@ -518,12 +518,12 @@ function geom(){
     return {
       dw:dw,dh:dh,mx:WIN.w*.35,my:WIN.h*.35,
       dx:WIN.x+WIN.w/2-(b.x+b.w/2)*s+state.fx*WIN.w*.35,
-      dy:WIN.y-POP*.9-b.y*s+state.fy*WIN.h*.35
+      dy:WIN.y+WIN.h-(b.y+b.h)*s+state.fy*WIN.h*.35
     };
   }
   var iw=state.img.width,ih=state.img.height;
   var s2=Math.max(WIN.w/iw,WIN.h/ih)*state.zoom,dw2=iw*s2,dh2=ih*s2;
-  var mx=Math.max((dw2-WIN.w)/2,0),my=Math.max((dh2-WIN.h)/2,0);
+  var mx=Math.max(Math.abs(dw2-WIN.w)/2,WIN.w*.2),my=Math.max(Math.abs(dh2-WIN.h)/2,WIN.h*.2);
   return {dw:dw2,dh:dh2,mx:mx,my:my,
     dx:WIN.x+WIN.w/2-dw2/2+state.fx*mx,dy:WIN.y+WIN.h/2-dh2/2+state.fy*my};
 }
@@ -706,7 +706,7 @@ hit.addEventListener('pointerup',endDrag);hit.addEventListener('pointercancel',f
 hit.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();$('photo').click()}});
 hit.addEventListener('wheel',function(e){
   if(!state.img)return;e.preventDefault();
-  state.zoom=Math.max(1,Math.min(3,state.zoom-e.deltaY*0.002));syncSliders();render();
+  state.zoom=Math.max(.4,Math.min(3,state.zoom-e.deltaY*0.002));syncSliders();render();
 },{passive:false});
 
 /* ---------- download ---------- */
